@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-raleway);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+@theme {
+  --color-ondadura-yellow-50: oklch(0.95 0.085 96.12);
+  --color-ondadura-yellow-100: oklch(0.909 0.152 95.96);
+  --color-ondadura-yellow-200: oklch(0.89 0.171 94.57);
+  --color-ondadura-yellow-300: oklch(0.875 0.177 92.47);
+  --color-ondadura-yellow-400: oklch(0.805 0.165 91.53);
+  --color-ondadura-yellow-500: oklch(0.709 0.145 91.83);
+  --color-ondadura-yellow-600: oklch(0.597 0.122 92.35);
+  --color-ondadura-yellow-700: oklch(0.493 0.101 93.05);
+  --color-ondadura-yellow-800: oklch(0.369 0.076 93.42);
+  --color-ondadura-yellow-900: oklch(0.25 0.051 95.7);
+  --color-ondadura-yellow-950: oklch(0.176 0.037 101.88);
+}
