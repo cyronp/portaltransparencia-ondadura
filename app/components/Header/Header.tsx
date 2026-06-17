@@ -14,7 +14,7 @@ export default function Header() {
     <>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`fixed top-4 right-4 z-9999 p-2 bg-transparent transition-all active:scale-95 duration-200 cursor-pointer focus:outline-none flex items-center justify-center border-2 ${!isOpen ? "border-white text-white hover:bg-neutral-600" : "hover:bg-neutral-200 border-black text-black"}`}
+        className={`fixed top-4 right-4 z-9999 p-2 bg-transparent transition-all active:scale-95 duration-200 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-ondadura-yellow-400 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent flex items-center justify-center border-2 ${!isOpen ? "border-white text-white hover:bg-neutral-600" : "hover:bg-neutral-200 border-black text-black"}`}
         aria-label={isOpen ? "Fechar cabeçalho" : "Abrir cabeçalho"}
         aria-expanded={isOpen}
       >
