@@ -14,7 +14,7 @@ export default function Header() {
     <>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`lg:hidden fixed top-4 right-4 z-9999 p-2 bg-transparent hover:bg-neutral-800 transition-all active:scale-95 duration-200 cursor-pointer focus:outline-none flex items-center justify-center border-2 ${!isOpen ? "border-white text-white" : "border-black text-black"}`}
+        className={`fixed top-4 right-4 z-9999 p-2 bg-transparent transition-all active:scale-95 duration-200 cursor-pointer focus:outline-none flex items-center justify-center border-2 ${!isOpen ? "border-white text-white hover:bg-neutral-600" : "hover:bg-neutral-200 border-black text-black"}`}
         aria-label={isOpen ? "Fechar cabeçalho" : "Abrir cabeçalho"}
         aria-expanded={isOpen}
       >
@@ -22,7 +22,7 @@ export default function Header() {
       </button>
 
       <header
-        className={`w-full bg-white z-999 shadow-sm transition-all duration-300 ease-in-out lg:relative lg:translate-y-0 lg:opacity-100 lg:pointer-events-auto ${
+        className={`w-full bg-white z-999 shadow-sm transition-all duration-300 ease-in-out ${
           isOpen
             ? "fixed top-0 left-0 right-0 translate-y-0 opacity-100 pointer-events-auto"
             : "fixed top-0 left-0 right-0 -translate-y-full opacity-0 pointer-events-none"

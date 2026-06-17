@@ -125,24 +125,24 @@ export default function HomeCarousel() {
       </div>
 
       {/* PowerPoint Control Deck */}
-      <div className="absolute bottom-6 left-6 sm:bottom-8 sm:left-12 md:left-24 z-20 flex items-center gap-2 bg-neutral-900/90 backdrop-blur-md px-3.5 py-2 rounded-xl border border-neutral-800/80 shadow-2xl deck-on-short">
+      <div className="absolute bottom-6 left-6 sm:bottom-8 sm:left-12 md:left-24 z-20 flex items-center gap-2 bg-neutral-900/90 backdrop-blur-md px-3.5 py-2 border border-white shadow-2xl deck-on-short">
         <button
           onClick={scrollPrev}
-          className="p-1 text-neutral-400 hover:text-white hover:bg-neutral-800 rounded-lg transition-colors cursor-pointer focus:outline-none flex items-center justify-center"
+          className="p-1 text-white hover:text-white hover:bg-neutral-800 rounded-lg transition-colors cursor-pointer focus:outline-none flex items-center justify-center"
           aria-label="Slide anterior"
         >
           <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
         </button>
         <button
           onClick={scrollNext}
-          className="p-1 text-neutral-400 hover:text-white hover:bg-neutral-800 rounded-lg transition-colors cursor-pointer focus:outline-none flex items-center justify-center"
+          className="p-1 text-white hover:text-white hover:bg-neutral-800 rounded-lg transition-colors cursor-pointer focus:outline-none flex items-center justify-center"
           aria-label="Próximo slide"
         >
           <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
         </button>
-        <div className="w-px h-4 bg-neutral-800 mx-1" />
+        <div className="w-px h-4 bg-white mx-1" />
         <span className="text-neutral-300 font-mono text-xs sm:text-sm tracking-widest font-semibold px-1 select-none">
-          {String(selectedIndex + 1).padStart(2, '0')} <span className="text-neutral-600">/</span> {String(SLIDES.length).padStart(2, '0')}
+          {String(selectedIndex + 1).padStart(2, '0')} <span className="text-white">/</span> {String(SLIDES.length).padStart(2, '0')}
         </span>
       </div>
     </div>
