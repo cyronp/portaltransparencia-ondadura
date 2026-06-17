@@ -27,7 +27,6 @@ body {
   --color-ondadura-yellow-950: oklch(0.176 0.037 101.88);
 }
 
-/* Orientation Warning Utilities */
 .show-only-mobile-portrait {
   display: none;
 }
@@ -38,7 +37,6 @@ body {
   }
 }
 
-/* Custom device rotation animation */
 @keyframes rotate-device {
   0% {
     transform: rotate(0deg);
@@ -58,7 +56,6 @@ body {
   animation: rotate-device 4s ease-in-out infinite;
 }
 
-/* Styles for short viewports (mobile landscape) */
 @media (max-height: 480px) {
   .hide-on-short {
     display: none !important;
@@ -71,7 +68,7 @@ body {
     padding-bottom: 1.25rem !important;
   }
   .title-on-short {
-    font-size: 1.35rem !important; /* text-xl */
+    font-size: 1.35rem !important;
     line-height: 1.25 !important;
   }
   .btn-on-short {
