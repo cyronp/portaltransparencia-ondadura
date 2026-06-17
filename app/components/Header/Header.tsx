@@ -1,23 +1,55 @@
+"use client";
+
+import { useState } from "react";
+import { ExternalLinkIcon, Menu, X } from "lucide-react";
 import OndaDuraIcon from "../Icon/OndaDuraIcon/OndeDuraIcon";
 import Heading from "../ui/Heading/Heading";
 import { Separator } from "../ui/Separator/Separator";
 import Text from "../ui/Text/Text";
 
 export default function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <>
-      <header className="w-full bg-white">
-        <div className="container mx-auto flex flex-row gap-4 items-center justify-between p-4">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className={`lg:hidden fixed top-4 right-4 z-9999 p-2 bg-transparent hover:bg-neutral-800 transition-all active:scale-95 duration-200 cursor-pointer focus:outline-none flex items-center justify-center border-2 ${!isOpen ? "border-white text-white" : "border-black text-black"}`}
+        aria-label={isOpen ? "Fechar cabeçalho" : "Abrir cabeçalho"}
+        aria-expanded={isOpen}
+      >
+        {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+      </button>
+
+      <header
+        className={`w-full bg-white z-999 shadow-sm transition-all duration-300 ease-in-out lg:relative lg:translate-y-0 lg:opacity-100 lg:pointer-events-auto ${
+          isOpen
+            ? "fixed top-0 left-0 right-0 translate-y-0 opacity-100 pointer-events-auto"
+            : "fixed top-0 left-0 right-0 -translate-y-full opacity-0 pointer-events-none"
+        }`}
+      >
+        <div className="container mx-auto flex flex-col lg:flex-row gap-4 lg:items-center justify-between p-4 pr-16 lg:pr-4">
           <div className="flex flex-row gap-4 items-center">
             <OndaDuraIcon />
             <Separator orientation="vertical" />
-            <Heading as="h1" className="text-lg lg:text-2xl font-semibold">
+            <Heading
+              as="h1"
+              className="text-lg lg:text-2xl font-semibold select-none"
+            >
               Portal da Transparência
             </Heading>
           </div>
-          <div>
-            <Text as="a" href="https://www.ondadura.com.br/" target="__blank" className="text-md lg:text-xl underline font-semibold">
-              Conheça Quem Somos
+
+          <div className="mt-2 lg:mt-0 flex flex-col lg:flex-row gap-4 lg:items-center">
+            <Text
+              as="a"
+              href="https://www.ondadura.com.br/"
+              target="__blank"
+              className="inline-flex gap-1 text-md items-center lg:text-xl underline font-semibold hover:text-neutral-600 transition-colors w-fit"
+              onClick={() => setIsOpen(false)}
+            >
+              Conheça Quem Somos{" "}
+              <ExternalLinkIcon className="text-black" size={16} />
             </Text>
           </div>
         </div>

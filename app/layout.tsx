@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Raleway, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header/Header";
+import OrientationWarning from "./components/OrientationWarning/OrientationWarning";
 
 const raleway = Raleway({
   variable: "--font-raleway",
@@ -30,7 +31,10 @@ export default function RootLayout({
     >
       <body className="min-h-full bg-neutral-800!">
         <Header/>
-        {children}</body>
+        {children}
+        <OrientationWarning />
+      </body>
     </html>
   );
 }
+
