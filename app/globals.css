@@ -79,4 +79,12 @@ body {
     bottom: 0.5rem !important;
     left: 1rem !important;
   }
+  .icon-on-short {
+    width: 2rem !important;
+    height: 2rem !important;
+  }
+  .select-on-short {
+    padding-top: 0.375rem !important;
+    padding-bottom: 0.375rem !important;
+  }
 }

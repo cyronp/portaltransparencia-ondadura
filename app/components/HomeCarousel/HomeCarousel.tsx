@@ -2,43 +2,36 @@
 
 import React, { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import {
+  CalendarDays,
+  ChevronDown,
+  ChevronLeft,
+  ChevronRight,
+  FileSearch,
+} from "lucide-react";
 import Heading from "../ui/Heading/Heading";
 import Text from "../ui/Text/Text";
+import { Separator } from "../ui/Separator/Separator";
+import OndaDuraIcon from "../Icon/OndaDuraIcon/OndeDuraIcon";
 
 const SLIDES = [
   {
-    badge: "PORTAL DA TRANSPARÊNCIA",
-    title: "Transparência Onda Dura",
-    description: "Temos o compromisso de agir com integridade e clareza. Acesse relatórios, balancetes e saiba como cada recurso é investido.",
-    buttonText: "Ver Relatórios",
-    gradient: "from-ondadura-yellow-500/20 via-neutral-900 to-neutral-950",
-    badgeColor: "bg-ondadura-yellow-400/10 text-ondadura-yellow-400 border-ondadura-yellow-400/20",
-    btnBg: "bg-ondadura-yellow-400 text-neutral-950 hover:bg-ondadura-yellow-300",
+    id: "date-selector",
   },
-  {
-    badge: "NOSSOS NÚMEROS",
-    title: "Recursos em Ação",
-    description: "Investimentos em projetos sociais, infraestrutura, ações comunitárias e missões. Acompanhe de perto a destinação de cada valor.",
-    buttonText: "Explorar Dados",
-    gradient: "from-teal-500/20 via-neutral-900 to-neutral-950",
-    badgeColor: "bg-teal-400/10 text-teal-400 border-teal-400/20",
-    btnBg: "bg-teal-500 text-white hover:bg-teal-400",
-  },
-  {
-    badge: "NOSSO PROPÓSITO",
-    title: "Impactando Vidas",
-    description: "Acreditamos que a transparência fortalece a confiança coletiva e potencializa nossa missão de espalhar transformação e esperança.",
-    buttonText: "Conhecer Projetos",
-    gradient: "from-violet-500/20 via-neutral-900 to-neutral-950",
-    badgeColor: "bg-violet-400/10 text-violet-400 border-violet-400/20",
-    btnBg: "bg-violet-600 text-white hover:bg-violet-500",
-  },
+];
+
+const AVAILABLE_DATES = [
+  { value: "2026-06", label: "Junho 2026" },
+  { value: "2026-05", label: "Maio 2026" },
+  { value: "2026-04", label: "Abril 2026" },
+  { value: "2026-03", label: "Março 2026" },
 ];
 
 export default function HomeCarousel() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [selectedDate, setSelectedDate] = useState("");
+  const [selectOpen, setSelectOpen] = useState(false);
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();
@@ -47,13 +40,6 @@ export default function HomeCarousel() {
   const scrollNext = useCallback(() => {
     if (emblaApi) emblaApi.scrollNext();
   }, [emblaApi]);
-
-  const scrollTo = useCallback(
-    (index: number) => {
-      if (emblaApi) emblaApi.scrollTo(index);
-    },
-    [emblaApi]
-  );
 
   useEffect(() => {
     if (!emblaApi) return;
@@ -65,7 +51,6 @@ export default function HomeCarousel() {
     emblaApi.on("select", onSelect);
     emblaApi.on("reInit", onSelect);
 
-    // Safely update state inside timeout to avoid cascading renders warning
     const timer = setTimeout(() => {
       setSelectedIndex(emblaApi.selectedScrollSnap());
     }, 0);
@@ -77,54 +62,143 @@ export default function HomeCarousel() {
     };
   }, [emblaApi]);
 
+  useEffect(() => {
+    if (!selectOpen) return;
+    const handler = () => setSelectOpen(false);
+    window.addEventListener("click", handler);
+    return () => window.removeEventListener("click", handler);
+  }, [selectOpen]);
+
+  const selectedLabel = AVAILABLE_DATES.find(
+    (d) => d.value === selectedDate,
+  )?.label;
+
   return (
     <div className="relative w-full h-full">
-      {/* Outer Slider Container */}
-      <div className="overflow-hidden w-full h-full bg-neutral-950" ref={emblaRef}>
+      <div
+        className="overflow-hidden w-full h-full bg-neutral-900"
+        ref={emblaRef}
+      >
         <div className="flex h-full">
-          {SLIDES.map((slide, index) => (
-            <div
-              key={index}
-              className="flex-[0_0_100%] min-w-0 h-full w-full relative bg-gradient-to-br p-6 sm:p-12 md:p-24 flex flex-col justify-center overflow-hidden pad-on-short"
-              style={{
-                backgroundImage: `radial-gradient(circle at top right, rgba(var(--color-bg-gradient), 0.15), transparent 60%)`,
-              }}
-            >
-              {/* Custom background gradient injection */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${slide.gradient} opacity-95 -z-10`} />
+          <div className="flex-[0_0_100%] min-w-0 flex items-center justify-center px-4 py-16 lg:py-0 pad-on-short">
+            <div className="relative w-full max-w-lg">
+              {/* Card */}
+              <div className="relative bg-neutral-800 backdrop-blur-xl border border-neutral-700 shadow-2xl shadow-black/40">
+                <div className="px-6 py-8 sm:px-10 sm:py-10 flex flex-col items-center gap-6 lg:gap-8 gap-on-short pad-on-short">
+                  <div className="flex flex-col items-center gap-4">
+                    <OndaDuraIcon
+                      className="text-ondadura-yellow-400"
+                      size={56}
+                    />
+                    <Separator
+                      orientation="horizontal"
+                      className="bg-neutral-700 w-[70%]"
+                    />
+                    <Heading
+                      as="h2"
+                      variant="Secondary"
+                      className="text-white text-center uppercase tracking-widest font-bold text-base sm:text-lg lg:text-xl title-on-short"
+                    >
+                      Portal da Transparência
+                    </Heading>
+                  </div>
 
-              {/* Glowing top-right orb */}
-              <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-current opacity-5 blur-[120px] pointer-events-none" />
+                  <Text
+                    variant="Secondary"
+                    className="text-neutral-400 text-center max-w-sm leading-relaxed text-sm sm:text-base hide-on-short"
+                  >
+                    Selecione o período desejado para visualizar nossa
+                    prestações de contas.
+                  </Text>
 
-              <div className="max-w-3xl space-y-3 sm:space-y-6 md:space-y-8 relative z-10 select-none pb-20 sm:pb-24 md:pb-28 gap-on-short">
-                {/* Badge */}
-                <span className={`inline-flex items-center px-2.5 py-1 text-[10px] sm:text-xs font-bold uppercase tracking-wider rounded-full border hide-on-short ${slide.badgeColor}`}>
-                  {slide.badge}
-                </span>
+                  <div className="w-full flex flex-col gap-2">
+                    <Text
+                      as="label"
+                      variant="Terciary"
+                      className="text-ondadura-yellow-400 uppercase tracking-widest font-semibold text-[11px]"
+                    >
+                      Período de referência desejado
+                    </Text>
 
-                {/* Title */}
-                <Heading as="h2" className="text-2xl sm:text-4xl md:text-7xl font-black text-white leading-tight font-sans tracking-tight title-on-short">
-                  {slide.title}
-                </Heading>
+                    <div className="relative">
+                      <button
+                        id="date-selector-trigger"
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setSelectOpen((prev) => !prev);
+                        }}
+                        className="w-full flex items-center gap-3 bg-neutral-950/60 border border-neutral-600 hover:border-ondadura-yellow-400/60 transition-colors px-4 py-3 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-ondadura-yellow-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-900 group select-on-short"
+                        aria-haspopup="listbox"
+                        aria-expanded={selectOpen}
+                      >
+                        <CalendarDays className="w-4 h-4 text-ondadura-yellow-400 shrink-0" />
+                        <span
+                          className={`flex-1 text-left font-mono text-sm tracking-wide ${
+                            selectedLabel ? "text-white" : "text-neutral-500"
+                          }`}
+                        >
+                          {selectedLabel || "Selecione a data..."}
+                        </span>
+                        <ChevronDown
+                          className={`w-4 h-4 text-neutral-500 group-hover:text-ondadura-yellow-400 transition-transform duration-200 ${
+                            selectOpen ? "rotate-180" : ""
+                          }`}
+                        />
+                      </button>
 
-                {/* Description */}
-                <Text className="text-neutral-300 text-xs sm:text-base md:text-2xl leading-relaxed max-w-2xl font-light hide-on-short">
-                  {slide.description}
-                </Text>
+                      {/* Dropdown */}
+                      {selectOpen && (
+                        <ul
+                          role="listbox"
+                          onClick={(e) => e.stopPropagation()}
+                          onPointerDown={(e) => e.stopPropagation()}
+                          onTouchStart={(e) => e.stopPropagation()}
+                          onTouchMove={(e) => e.stopPropagation()}
+                          style={{
+                            touchAction: "pan-y",
+                            overscrollBehavior: "contain",
+                          }}
+                          className="absolute z-50 left-0 right-0 bg-neutral-900 border border-neutral-700 max-h-24 lg:max-h-48 overflow-y-auto"
+                        >
+                          {AVAILABLE_DATES.map((date) => (
+                            <li
+                              key={date.value}
+                              role="option"
+                              aria-selected={selectedDate === date.value}
+                              onClick={() => {
+                                setSelectedDate(date.value);
+                                setSelectOpen(false);
+                              }}
+                              className={`px-4 py-3 flex items-center gap-3 cursor-pointer transition-colors font-mono text-sm tracking-wide ${
+                                selectedDate === date.value
+                                  ? "bg-ondadura-yellow-400/10 text-ondadura-yellow-400"
+                                  : "text-neutral-300 hover:bg-neutral-800 hover:text-white"
+                              }`}
+                            >
+                              <CalendarDays className="w-3.5 h-3.5 shrink-0 opacity-50" />
+                              {date.label}
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  </div>
 
-                {/* Call-to-Action Button */}
-                <div className="pt-2">
-                  <button className={`px-5 py-2.5 sm:px-8 sm:py-4 rounded-lg sm:rounded-xl text-xs sm:text-sm md:text-base font-bold uppercase tracking-wider transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer shadow-lg shadow-black/30 btn-on-short ${slide.btnBg}`}>
-                    {slide.buttonText}
+                  <button
+                    id="load-reports-btn"
+                    disabled={!selectedDate}
+                    className="w-full flex items-center justify-center gap-2 uppercase bg-ondadura-yellow-400 text-neutral-950 font-semibold tracking-wide text-sm py-3 px-6 transition-all duration-200 hover:bg-ondadura-yellow-200 cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-ondadura-yellow-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-ondadura-yellow-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-900 btn-on-short"
+                  >
+                    Carregar apresentação
                   </button>
                 </div>
               </div>
             </div>
-          ))}
+          </div>
         </div>
       </div>
 
-      {/* Deck */}
       <div className="absolute bottom-6 left-6 sm:bottom-8 sm:left-12 md:left-24 z-20 flex items-center gap-2 bg-neutral-900/90 backdrop-blur-md px-3 py-2 border border-ondadura-yellow-400 deck-on-short">
         <button
           onClick={scrollPrev}
@@ -142,7 +216,9 @@ export default function HomeCarousel() {
         </button>
         <div className="w-px h-4 bg-ondadura-yellow-400 mx-1" />
         <span className="text-ondadura-yellow-400 font-mono text-xs sm:text-sm tracking-widest font-semibold px-1 select-none">
-          {String(selectedIndex + 1).padStart(2, '0')} <span className="text-ondadura-yellow-400">/</span> {String(SLIDES.length).padStart(2, '0')}
+          {String(selectedIndex + 1).padStart(2, "0")}{" "}
+          <span className="text-ondadura-yellow-400">/</span>{" "}
+          {String(SLIDES.length).padStart(2, "0")}
         </span>
       </div>
     </div>
