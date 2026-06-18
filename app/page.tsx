@@ -98,8 +98,6 @@ export default function Home() {
             </button>
 
             <div className="flex flex-col items-center gap-4 text-center">
-              <OndaDuraIcon className="text-white" size={56} />
-              <div className="w-16 h-1 bg-ondadura-yellow-400" />
 
               <Heading
                 as="h2"
