@@ -28,7 +28,7 @@ export default function Header() {
             : "fixed top-0 left-0 right-0 -translate-y-full opacity-0 pointer-events-none"
         }`}
       >
-        <div className="container mx-auto flex flex-col lg:flex-row gap-4 lg:items-center justify-between p-4 pr-16 lg:pr-4">
+        <div className="container mx-auto flex flex-row gap-4 items-center justify-between p-4 pr-16 lg:pr-4">
           <div className="flex flex-row gap-4 items-center">
             <OndaDuraIcon />
             <Separator orientation="vertical" />
@@ -40,15 +40,15 @@ export default function Header() {
             </Heading>
           </div>
 
-          <div className="mt-2 lg:mt-0 flex flex-col lg:flex-row gap-4 lg:items-center">
+          <div className="flex flex-row gap-4 items-center">
             <Text
               as="a"
               href="https://www.ondadura.com.br/"
               target="__blank"
-              className="inline-flex gap-1 text-md items-center lg:text-xl underline font-semibold hover:text-neutral-600 transition-colors w-fit"
+              className="inline-flex gap-1 text-lg items-center lg:text-xl underline font-semibold hover:text-neutral-600 transition-colors w-fit"
               onClick={() => setIsOpen(false)}
             >
-              Conheça Quem Somos{" "}
+              Conheça Quem Somos
               <ExternalLinkIcon className="text-black" size={16} />
             </Text>
           </div>
