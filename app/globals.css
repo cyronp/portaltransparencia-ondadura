@@ -5,6 +5,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-raleway);
   --font-mono: var(--font-geist-mono);
+  --font-monument: var(--font-monument);
 }
 
 body {
@@ -56,9 +57,29 @@ body {
   animation: rotate-device 4s ease-in-out infinite;
 }
 
+.show-on-short {
+  display: none !important;
+}
+
+@keyframes fade-in-opacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in-opacity {
+  animation: fade-in-opacity 0.2s ease-out;
+}
+
 @media (max-height: 480px) {
   .hide-on-short {
     display: none !important;
+  }
+  .show-on-short {
+    display: flex !important;
   }
   .gap-on-short > * + * {
     margin-top: 0.5rem !important;
