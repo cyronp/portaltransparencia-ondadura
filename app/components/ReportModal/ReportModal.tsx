@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { CalendarDays, ChevronDown, X } from "lucide-react";
+import { CalendarDays, ChevronDown, Construction, X } from "lucide-react";
 import Heading from "@/app/components/ui/Heading/Heading";
 import Text from "@/app/components/ui/Text/Text";
 import {
@@ -120,10 +120,10 @@ export default function ReportModal({ isOpen, onClose }: ReportModalProps) {
 
         <button
           id="load-reports-btn"
-          disabled={!selectedDate}
-          className="w-full mt-4 bg-ondadura-yellow-200 border-2 border-ondadura-yellow-200 text-black hover:bg-transparent hover:text-white hover:border-white uppercase text-xs font-bold tracking-widest py-3.5 transition-all duration-200 disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-ondadura-yellow-200 disabled:hover:text-black disabled:hover:border-transparent cursor-pointer"
+          disabled
+          className="inline-flex gap-4  items-center justify-center w-full mt-4 bg-ondadura-yellow-200 border-2 border-ondadura-yellow-200 text-black hover:bg-transparent hover:text-white hover:border-white uppercase text-xs font-bold tracking-widest py-3.5 transition-all duration-200 disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-ondadura-yellow-200 disabled:hover:text-black disabled:hover:border-transparent cursor-pointer"
         >
-          Carregar Apresentação
+          Tela em construção <Construction size={20}/>
         </button>
       </div>
     </div>

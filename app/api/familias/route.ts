@@ -8,7 +8,7 @@ export async function GET(request: NextRequest) {
     const acompanhador = searchParams.get("acompanhador");
     const search = searchParams.get("search");
 
-    let query = supabase.from("familias").select("*");
+    let query = supabase.from("familias").select("qtd_meses, bairro, endereco, familia, acompanhador");
 
     // Filter by neighborhood (bairro) if specified
     if (bairro) {
