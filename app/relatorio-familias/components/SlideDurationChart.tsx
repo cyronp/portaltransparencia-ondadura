@@ -44,7 +44,7 @@ export default function SlideDurationChart({ durationRanges }: SlideDurationChar
             </div>
             <div>
               <Heading as="h2" variant="Secondary" className="text-white uppercase tracking-tight font-extrabold text-sm sm:text-lg md:text-xl lg:text-4xl font-monument">
-                Pessoas/Familias por Tempo no Programa
+                Pessoas/Famílias por Tempo no Programa
               </Heading>
             </div>
           </div>
