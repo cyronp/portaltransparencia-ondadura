@@ -16,3 +16,36 @@ export interface Familia {
   visitas: string | null;
   created_at: string;
 }
+
+export interface Receita {
+  id: number;
+  origem: string;
+  projeto_conta: string;
+  valor: number;
+  competencia: string;
+  descricao: string | null;
+  created_at: string;
+}
+
+export interface Despesa {
+  id: number;
+  item: string;
+  tipo: string;
+  valor: number;
+  percentual: number;
+  competencia: string;
+  observacao: string | null;
+  created_at: string;
+}
+
+export interface DoacaoParceiro {
+  id: number;
+  parceiro: string;
+  tipo_doacao: string;
+  valor: number;
+  destino: string;
+  status: string;
+  observacao: string | null;
+  competencia: string;
+  created_at: string;
+}
