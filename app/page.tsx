@@ -50,7 +50,7 @@ export default function Home() {
             variant="Secondary"
             icon={Coins}
             title="Prestação de Contas"
-            description="Consulte as demonstrações de receitas, despesas, e a prestação de contas institucional transparente por período."
+            description="Acompanhe com transparência a destinação das doações para a Onda Dura detalhando receitas e despesas voltadas à manutenção local, sustento de servos, plantação de novas igrejas e projetos sociais."
             actionLabel="Visualizar Relatório"
             onClick={() => setIsModalOpen(true)}
           />

@@ -144,10 +144,7 @@ export default function SlideDespesas({ despesas, competenciaLabel }: SlideDespe
                 </div>
               </div>
 
-              {/* Informative footer */}
-              <div className="border-t border-white/10 pt-3 text-[8px] sm:text-[9px] uppercase tracking-wider font-mono text-neutral-500 leading-normal">
-                Custos fixos compreendem despesas recorrentes de administração e RH. Custos variáveis estão atrelados a investimentos sazonais e construções.
-              </div>
+
             </div>
 
           </div>

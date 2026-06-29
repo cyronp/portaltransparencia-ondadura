@@ -10,7 +10,10 @@ interface SlideRegionalTableProps {
   totalFamilies: number;
 }
 
-export default function SlideRegionalTable({ sortedBairrosData, totalFamilies }: SlideRegionalTableProps) {
+export default function SlideRegionalTable({
+  sortedBairrosData,
+  totalFamilies,
+}: SlideRegionalTableProps) {
   return (
     <div className="flex-[0_0_100%] min-w-0 w-full h-full flex items-center justify-center p-0">
       <div className="w-full h-full flex flex-col justify-start px-6 sm:px-16 pt-32 pb-20 max-lg:landscape:pt-28 max-lg:landscape:pb-20 sm:pt-36 lg:pt-44 sm:pb-24 overflow-y-auto">
@@ -20,7 +23,11 @@ export default function SlideRegionalTable({ sortedBairrosData, totalFamilies }:
               <MapPin className="w-5 h-5 sm:w-6 sm:h-6 lg:w-10 lg:h-10 text-ondadura-yellow-400" />
             </div>
             <div>
-              <Heading as="h2" variant="Secondary" className="text-white uppercase tracking-tight font-extrabold text-sm sm:text-lg md:text-xl lg:text-4xl font-monument">
+              <Heading
+                as="h2"
+                variant="Secondary"
+                className="text-white uppercase tracking-tight font-extrabold text-sm sm:text-lg md:text-xl lg:text-4xl font-monument"
+              >
                 Distribuição Regional
               </Heading>
             </div>
@@ -30,17 +37,29 @@ export default function SlideRegionalTable({ sortedBairrosData, totalFamilies }:
               <table className="w-full text-left border-collapse">
                 <thead>
                   <tr className="bg-white border-b border-white sticky top-0 z-10">
-                    <th className="p-2 sm:p-3 lg:p-5 text-[8px] sm:text-[10px] lg:text-sm uppercase font-monument font-extrabold tracking-widest text-black bg-white">Bairro</th>
-                    <th className="p-2 sm:p-3 lg:p-5 text-[8px] sm:text-[10px] lg:text-sm uppercase font-monument font-extrabold tracking-widest text-black text-center bg-white">Famílias</th>
-                    <th className="p-2 sm:p-3 lg:p-5 text-[8px] sm:text-[10px] lg:text-sm uppercase font-monument font-extrabold tracking-widest text-black text-center bg-white">%</th>
+                    <th className="p-2 sm:p-3 lg:p-5 text-[8px] sm:text-[10px] lg:text-sm uppercase font-monument font-extrabold tracking-widest text-black bg-white">
+                      Bairro
+                    </th>
+                    <th className="p-2 sm:p-3 lg:p-5 text-[8px] sm:text-[10px] lg:text-sm uppercase font-monument font-extrabold tracking-widest text-black text-center bg-white">
+                      Famílias
+                    </th>
+                    <th className="p-2 sm:p-3 lg:p-5 text-[8px] sm:text-[10px] lg:text-sm uppercase font-monument font-extrabold tracking-widest text-black text-center bg-white">
+                      %
+                    </th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-white/10 text-[10px] sm:text-xs lg:text-lg text-neutral-300">
                   {sortedBairrosData.map(([bairroName, count]) => (
                     <tr key={bairroName} className="hover:bg-neutral-900/20">
-                      <td className="p-2 sm:p-3 lg:p-5 font-bold text-white uppercase tracking-wider">{bairroName}</td>
-                      <td className="p-2 sm:p-3 lg:p-5 text-center font-mono font-bold text-white">{count}</td>
-                      <td className="p-2 sm:p-3 lg:p-5 text-center font-mono text-neutral-400">{((count / totalFamilies) * 100).toFixed(1)}%</td>
+                      <td className="p-2 sm:p-3 lg:p-5 font-bold text-white uppercase tracking-wider">
+                        {bairroName}
+                      </td>
+                      <td className="p-2 sm:p-3 lg:p-5 text-center font-mono font-bold text-white">
+                        {count}
+                      </td>
+                      <td className="p-2 sm:p-3 lg:p-5 text-center font-mono text-neutral-400">
+                        {((count / totalFamilies) * 100).toFixed(1)}%
+                      </td>
                     </tr>
                   ))}
                 </tbody>

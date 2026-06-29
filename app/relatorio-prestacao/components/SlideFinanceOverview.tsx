@@ -15,7 +15,7 @@ interface SlideFinanceOverviewProps {
   competenciaLabel: string;
 }
 
-const COLORS = ["#f2c12e", "#fef08a", "#ffffff", "#a3a3a3", "#525252"];
+const COLORS = ["#f2c12e", "#362856", "#2D47EA", "#DC5916", "#ffffff", "#a3a3a3", "#525252"];
 
 const CustomTooltip = ({ active, payload }: any) => {
   if (active && payload && payload.length) {

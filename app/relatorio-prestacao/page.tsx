@@ -106,7 +106,6 @@ function RelatorioPrestacaoContent() {
         <div className="w-full h-full relative z-10">
           <div className="overflow-hidden w-full h-full" ref={emblaRef}>
             <div className="flex h-full">
-              
               {/* SLIDE 1: Visão Geral */}
               <SlideFinanceOverview
                 receitas={receitas}
@@ -127,7 +126,6 @@ function RelatorioPrestacaoContent() {
                 despesas={despesas}
                 competenciaLabel={competenciaLabel}
               />
-
             </div>
           </div>
         </div>
