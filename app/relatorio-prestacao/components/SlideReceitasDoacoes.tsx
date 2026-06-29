@@ -20,8 +20,8 @@ export default function SlideReceitasDoacoes({
 }: SlideReceitasDoacoesProps) {
   return (
     <div className="flex-[0_0_100%] min-w-0 w-full h-full flex items-center justify-center p-0">
-      <div className="w-full h-full flex flex-col justify-center px-6 sm:px-16 pt-32 pb-20 max-lg:landscape:pt-28 max-lg:landscape:pb-20 sm:pt-36 lg:pt-44 sm:pb-24 overflow-y-auto">
-        <div className="max-w-6xl mx-auto w-full flex flex-col gap-4 max-lg:landscape:gap-3 sm:gap-6 lg:gap-8 justify-center">
+      <div className="w-full h-full flex flex-col justify-start px-6 sm:px-16 pt-32 pb-20 max-lg:landscape:pt-28 max-lg:landscape:pb-20 sm:pt-36 lg:pt-44 sm:pb-24 overflow-y-auto">
+        <div className="max-w-6xl mx-auto w-full flex flex-col gap-4 max-lg:landscape:gap-3 sm:gap-6 lg:gap-8 justify-start">
           
           {/* Header */}
           <div className="flex items-center gap-4 lg:gap-6">
