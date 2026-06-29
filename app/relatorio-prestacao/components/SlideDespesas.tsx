@@ -45,11 +45,11 @@ export default function SlideDespesas({ despesas, competenciaLabel }: SlideDespe
             </div>
           </div>
 
-          {/* Grid Layout */}
-          <div className="grid grid-cols-1 max-lg:landscape:grid-cols-12 xl:grid-cols-12 gap-4 lg:gap-8 items-stretch">
+          {/* Flex Layout */}
+          <div className="flex flex-col xl:flex-row gap-4 lg:gap-8 items-stretch w-full">
             
-            {/* Left Panel: Table of Expenses (8/12) */}
-            <div className="xl:col-span-8 max-lg:landscape:col-span-8 flex flex-col gap-2 border border-white/60 bg-neutral-950/40 p-4">
+            {/* Left Panel: Table of Expenses (w-full on mobile, xl:w-8/12 on large screens) */}
+            <div className="w-full xl:w-8/12 flex flex-col gap-2 border border-white/60 bg-neutral-950/40 p-4">
               <span className="text-[9px] sm:text-[10px] lg:text-xs uppercase font-monument font-extrabold tracking-wider text-white mb-2 block">
                 Tabela Demonstrativa de Custos
               </span>
@@ -100,8 +100,8 @@ export default function SlideDespesas({ despesas, competenciaLabel }: SlideDespe
               </div>
             </div>
 
-            {/* Right Panel: Cost Structure (4/12) */}
-            <div className="xl:col-span-4 max-lg:landscape:col-span-4 flex flex-col gap-4 border border-white/60 bg-neutral-950/40 p-4 justify-between">
+            {/* Right Panel: Cost Structure (w-full on mobile, xl:w-4/12 on large screens) */}
+            <div className="w-full xl:w-4/12 flex flex-col gap-4 border border-white/60 bg-neutral-950/40 p-4 justify-between">
               <div>
                 <span className="text-[9px] sm:text-[10px] lg:text-xs uppercase font-monument font-extrabold tracking-wider text-white mb-4 block">
                   Estrutura de Custos

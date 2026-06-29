@@ -38,11 +38,11 @@ export default function SlideReceitasDoacoes({
             </div>
           </div>
 
-          {/* Tables Grid Layout */}
-          <div className="grid grid-cols-1 max-lg:landscape:grid-cols-12 xl:grid-cols-12 gap-4 lg:gap-8 items-stretch">
+          {/* Tables Flex Layout */}
+          <div className="flex flex-col xl:flex-row gap-4 lg:gap-8 items-stretch w-full">
             
-            {/* Panel 1: Receitas Diretas (5/12 on large screens) */}
-            <div className="xl:col-span-5 max-lg:landscape:col-span-5 flex flex-col gap-2 border border-white/60 bg-neutral-950/40 p-4">
+            {/* Panel 1: Receitas Diretas (w-full on mobile, xl:w-5/12 on large screens) */}
+            <div className="w-full xl:w-5/12 flex flex-col gap-2 border border-white/60 bg-neutral-950/40 p-4">
               <span className="text-[9px] sm:text-[10px] lg:text-xs uppercase font-monument font-extrabold tracking-wider text-white mb-2 block">
                 Receitas Institucionais
               </span>
@@ -79,8 +79,8 @@ export default function SlideReceitasDoacoes({
               </div>
             </div>
 
-            {/* Panel 2: Doações de Parceiros (7/12 on large screens) */}
-            <div className="xl:col-span-7 max-lg:landscape:col-span-7 flex flex-col gap-2 border border-white/60 bg-neutral-950/40 p-4">
+            {/* Panel 2: Doações de Parceiros (w-full on mobile, xl:w-7/12 on large screens) */}
+            <div className="w-full xl:w-7/12 flex flex-col gap-2 border border-white/60 bg-neutral-950/40 p-4">
               <span className="text-[9px] sm:text-[10px] lg:text-xs uppercase font-monument font-extrabold tracking-wider text-white mb-2 block">
                 Doações e Parcerias de Empresas
               </span>

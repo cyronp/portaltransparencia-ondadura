@@ -69,11 +69,11 @@ export default function SlideFinanceOverview({
             </div>
           </div>
 
-          {/* Grid Layout: Stats (Left) & Chart (Right) */}
-          <div className="grid grid-cols-1 max-lg:landscape:grid-cols-12 lg:grid-cols-12 gap-4 lg:gap-8 items-stretch">
+          {/* Flex Layout: Stats (Left) & Chart (Right) */}
+          <div className="flex flex-col lg:flex-row gap-4 lg:gap-8 items-stretch w-full">
             
-            {/* Left Column: Stat Cards (6/12 on large screen) */}
-            <div className="lg:col-span-6 max-lg:landscape:col-span-6 grid grid-cols-2 gap-3 sm:gap-4">
+            {/* Left Column: Stat Cards (w-full on mobile, lg:w-1/2 on desktop) */}
+            <div className="w-full lg:w-1/2 grid grid-cols-2 gap-3 sm:gap-4">
               
               {/* Receitas */}
               <div className="bg-transparent p-3 sm:p-4 lg:p-6 border border-white/60 hover:border-ondadura-yellow-400 transition-colors flex flex-col justify-between gap-4 group">
@@ -137,8 +137,8 @@ export default function SlideFinanceOverview({
 
             </div>
 
-            {/* Right Column: Chart (6/12 on large screen) */}
-            <div className="lg:col-span-6 max-lg:landscape:col-span-6 flex flex-col border border-white/60 bg-neutral-950/40 p-4 lg:p-6 justify-between gap-4">
+            {/* Right Column: Chart (w-full on mobile, lg:w-1/2 on desktop) */}
+            <div className="w-full lg:w-1/2 flex flex-col border border-white/60 bg-neutral-950/40 p-4 lg:p-6 justify-between gap-4">
               <span className="text-[9px] lg:text-xs uppercase font-monument font-extrabold tracking-wider text-white">
                 Destinação das Despesas
               </span>
